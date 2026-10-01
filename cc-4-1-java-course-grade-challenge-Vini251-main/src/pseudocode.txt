@@ -1,0 +1,49 @@
+STUDENT GRADE PROCESSING PROGRAM - PSEUDOCODE
+
+MAIN PROGRAM:
+1. PROMPT user for TSV filename
+2. READ filename from user input
+3. OPEN TSV file for reading
+4. CREATE empty list to store student records
+5. CREATE variables to track exam totals and student count
+
+6. WHILE not end of file:
+   - READ line from TSV file
+   - SPLIT line by tab character into: lastName, firstName, midterm1, midterm2, final
+   - CONVERT scores to integers
+   - CALCULATE average = (midterm1 + midterm2 + final) / 3
+   - DETERMINE letter grade based on average:
+     * IF average >= 90: grade = 'A'
+     * ELSE IF average >= 80: grade = 'B'
+     * ELSE IF average >= 70: grade = 'C'
+     * ELSE IF average >= 60: grade = 'D'
+     * ELSE: grade = 'F'
+   - ADD student record to list
+   - UPDATE exam totals for averages
+
+7. CLOSE input file
+
+8. CALCULATE exam averages:
+   - midterm1Average = totalMidterm1 / studentCount
+   - midterm2Average = totalMidterm2 / studentCount
+   - finalAverage = totalFinal / studentCount
+
+9. OPEN "report.txt" for writing
+
+10. FOR each student in list:
+    - WRITE lastName + TAB + firstName + TAB + midterm1 + TAB + midterm2 + TAB + final + TAB + grade + NEWLINE
+
+11. WRITE "Averages: Midterm1 " + FORMAT(midterm1Average, 2 decimals) + 
+         ", Midterm2 " + FORMAT(midterm2Average, 2 decimals) + 
+         ", Final " + FORMAT(finalAverage, 2 decimals)
+
+12. CLOSE output file
+
+DATA STRUCTURES:
+- Student class/record with fields: lastName, firstName, midterm1, midterm2, final, average, letterGrade
+- List/Array to store student objects
+- Variables for exam totals and counts
+
+HELPER FUNCTIONS:
+- calculateLetterGrade(average) -> returns letter grade character
+- formatDecimal(number, places) -> returns formatted string with specified decimal places

@@ -1,0 +1,9 @@
+Valid	Student	85	90	88
+	EmptyFirst	75	80	85
+LastEmpty		70	75	80
+Invalid	Score	abc	90	88
+OutOfRange	High	85	150	88
+OutOfRange	Low	85	-10	88
+Missing	Fields	85	90
+Extra	Fields	Too	Many	85	90	88	95
+Valid	Again	92	87	95
